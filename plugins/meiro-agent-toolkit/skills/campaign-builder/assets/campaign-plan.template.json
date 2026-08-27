@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1.0",
+  "state": "offline_proposal",
+  "name": "REPLACE_WITH_CAMPAIGN_NAME",
+  "objective": "REPLACE_WITH_MEASURABLE_OBJECTIVE",
+  "environment": "unspecified",
+  "channel": "email",
+  "audience": {
+    "id": null,
+    "name": "REPLACE_WITH_AUDIENCE_NAME",
+    "inclusionLogic": [],
+    "exclusionLogic": [],
+    "estimatedReach": null,
+    "consentBasis": "unknown"
+  },
+  "content": {
+    "subject": "REPLACE_WITH_SUBJECT",
+    "bodyDraft": "REPLACE_WITH_BODY",
+    "personalization": [],
+    "fallbacks": []
+  },
+  "delivery": {
+    "schedule": null,
+    "timeZone": null,
+    "frequencyCap": null,
+    "priority": null
+  },
+  "measurement": {
+    "primaryGoalId": null,
+    "successMetric": "REPLACE_WITH_METRIC",
+    "holdoutOrControl": null,
+    "attributionCaveat": "Goal attachment is reporting context, not proof of causality."
+  },
+  "readinessChecks": [
+    "Transport is configured and enabled",
+    "Audience and consent basis are approved",
+    "Exclusions and frequency cap are approved",
+    "Personalization fallbacks are tested",
+    "Schedule and time zone are approved",
+    "Test send is separately approved"
+  ],
+  "rollbackPlan": "REPLACE_WITH_ROLLBACK_PLAN",
+  "assumptions": [],
+  "openQuestions": [],
+  "meiroWritePerformed": false,
+  "activationApproved": false,
+  "productionReady": false
+}

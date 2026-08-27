@@ -1,0 +1,43 @@
+#!/bin/sh
+set -eu
+
+if [ "${1:-}" = "--print-command" ]; then
+  print_only=1
+  shift
+else
+  print_only=0
+fi
+
+method="${1:-}"
+path="${2:-}"
+
+if [ "$method" != "GET" ]; then
+  echo "DENIED: only GET is allowed" >&2
+  exit 64
+fi
+
+case "$path" in
+  /api/event-streams/*/examples|/api/profiles/search*|/api/secrets*|/api/api-tokens*|/api/settings*)
+    echo "DENIED: sensitive or payload-bearing read is not allowed: $path" >&2
+    exit 67
+    ;;
+esac
+
+case "$path" in
+  /api/auth/me|/api/dashboard|/api/health/queues|/api/health/heartbeat|/api/error-stats|/api/error-logs|/api/event-streams|/api/cloud-apps|/api/event-types|/api/identifier-types|/api/models|/api/data-warehouses|/api/pipes|/api/pipes/diagram|/api/event-destinations|/api/event-deliveries|/api/attributes|/api/audiences|/api/audiences/reverse-etl/diagram|/api/live-profile-syncs|/api/live-profile-syncs/diagram|/api/profile-destinations|/api/profile-deliveries|/api/profiles/search-cache)
+    ;;
+  /api/error-logs/*|/api/event-streams/*|/api/cloud-apps/*|/api/pipes/*/deliveries|/api/event-destinations/*/deliveries|/api/event-deliveries/*|/api/attributes/*/versions|/api/audiences/*/versions|/api/audiences/*/profile-destinations|/api/audiences/*/profile-deliveries|/api/live-profile-syncs/*|/api/profile-destinations/*/deliveries|/api/profile-deliveries/*|/api/profiles/search-cache/*|/api/profiles/*/audiences|/api/profiles/*)
+    ;;
+  *)
+    echo "DENIED: GET route is not allowlisted: $path" >&2
+    exit 65
+    ;;
+esac
+
+shift 2
+if [ "$print_only" -eq 1 ]; then
+  printf '%s\n' "mpcli api GET $path $*"
+  exit 0
+fi
+
+exec mpcli api GET "$path" "$@"

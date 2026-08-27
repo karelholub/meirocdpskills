@@ -1,0 +1,15 @@
+{
+  "version": "1.0",
+  "default": "deny",
+  "stages": [
+    {"stage": "discover", "allowed": ["public_read", "meiro_metadata_get", "local_artifact_write"], "approval": "none"},
+    {"stage": "plan", "allowed": ["offline_configuration_proposal", "offline_content_draft", "synthetic_test_plan"], "approval": "none"},
+    {"stage": "sandbox_draft", "allowed": ["create_inactive_object_in_named_nonproduction_instance"], "approval": "explicit_exact_plan_and_payload_hash"},
+    {"stage": "production_configuration", "allowed": ["create_or_update_inactive_production_object"], "approval": "explicit_per_batch_with_diff_and_rollback"},
+    {"stage": "credential_or_data_connection", "allowed": ["attach_secret_reference", "enable_ingestion", "connect_crm_oms_dwh_feed"], "approval": "explicit_data_owner_and_security_owner"},
+    {"stage": "delivery_test", "allowed": ["test_send_to_allowlisted_recipients"], "approval": "explicit_channel_owner"},
+    {"stage": "activation", "allowed": ["schedule", "launch", "publish", "enable", "export", "send"], "approval": "single_use_exact_object_payload_hash_reach_schedule_and_two_person_review"}
+  ],
+  "neverAutomatic": ["consent_assumption", "production_secret_creation", "customer_data_export", "paid_media_activation", "campaign_launch", "journey_launch", "bulk_send"]
+}
+

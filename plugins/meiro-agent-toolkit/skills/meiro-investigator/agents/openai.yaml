@@ -1,0 +1,4 @@
+interface:
+  display_name: "Meiro Investigator"
+  short_description: "Read-only Meiro operational investigation"
+  default_prompt: "Use $meiro-investigator to investigate this Meiro issue without changing instance state."

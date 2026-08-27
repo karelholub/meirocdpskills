@@ -1,0 +1,28 @@
+{
+  "schemaVersion": "1.0",
+  "state": "offline_proposal",
+  "site": {
+    "url": "REPLACE",
+    "slug": "REPLACE",
+    "observedAt": "REPLACE",
+    "consentState": "REPLACE"
+  },
+  "observedContainers": [],
+  "observedVendors": [],
+  "proposedEventStream": {
+    "name": "REPLACE",
+    "slug": "REPLACE",
+    "status": "offline_only"
+  },
+  "identifierCandidates": [],
+  "eventTypes": [],
+  "fieldMappings": [],
+  "transformRules": [],
+  "routingCandidates": [],
+  "unknowns": [],
+  "websiteWritePerformed": false,
+  "gtmWritePerformed": false,
+  "meiroWritePerformed": false,
+  "deploymentApproved": false
+}
+

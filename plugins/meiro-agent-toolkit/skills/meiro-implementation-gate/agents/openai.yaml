@@ -1,0 +1,6 @@
+interface:
+  display_name: "Meiro Implementation Gate"
+  short_description: "Control approved Meiro configuration changes"
+  default_prompt: "Use $meiro-implementation-gate to review whether a proposed Meiro change is authorized and safe."
+policy:
+  allow_implicit_invocation: false

@@ -1,0 +1,28 @@
+{
+  "name": "meiro-agent-toolkit",
+  "version": "0.1.0",
+  "description": "Governed Meiro CDP, Engage, ecommerce, web-tracking, retail-attribute and paid-media workflows for Codex.",
+  "author": {
+    "name": "Meiro Team"
+  },
+  "homepage": "https://github.com/karelholub/meirocdpskills",
+  "repository": "https://github.com/karelholub/meirocdpskills.git",
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Meiro Agent Toolkit",
+    "shortDescription": "Audit, plan and govern Meiro implementations safely.",
+    "longDescription": "Reusable read-only investigation, Engage auditing, ecommerce planning, retail attribute coverage, web tracking reconnaissance, paid-media readiness, offline campaign design and implementation-gate skills. Credentials and client execution bundles remain local.",
+    "developerName": "Meiro Team",
+    "category": "Productivity",
+    "capabilities": [
+      "Read-only investigation",
+      "Implementation planning",
+      "Governed campaign proposals"
+    ],
+    "defaultPrompt": [
+      "Audit this Meiro instance without changing it.",
+      "Plan an ecommerce implementation from website evidence.",
+      "Review this proposed change through the Meiro gate."
+    ]
+  }
+}

@@ -1,0 +1,44 @@
+#!/bin/sh
+set -eu
+
+if [ "${1:-}" = "--print-command" ]; then
+  print_only=1
+  shift
+else
+  print_only=0
+fi
+
+method="${1:-}"
+path="${2:-}"
+
+if [ "$method" != "GET" ]; then
+  echo "DENIED: only GET is allowed" >&2
+  exit 64
+fi
+
+case "$path" in
+  /api/channels/settings/transports|/api/channels/campaigns|/api/journeys|/api/audiences|/api/profile-destinations|/api/profile-deliveries|/api/web-banners)
+    ;;
+  /api/channels/campaigns/*|/api/journeys/*|/api/goals/attachments*|/api/profile-destinations/*/deliveries|/api/profile-destinations/*|/api/profile-deliveries/*|/api/web-banners/*)
+    ;;
+  *)
+    echo "DENIED: Engage GET route is not allowlisted: $path" >&2
+    exit 65
+    ;;
+esac
+
+# Explicitly deny action-like suffixes even if a future server accepts GET.
+case "$path" in
+  */test-send*|*/schedule*|*/launch*|*/pause*|*/archive*|*/restore*|*/save*|*/enable*|*/disable*|*/publish*)
+    echo "DENIED: action route is never an audit read: $path" >&2
+    exit 66
+    ;;
+esac
+
+shift 2
+if [ "$print_only" -eq 1 ]; then
+  printf '%s\n' "mpcli api GET $path $*"
+  exit 0
+fi
+
+exec mpcli api GET "$path" "$@"

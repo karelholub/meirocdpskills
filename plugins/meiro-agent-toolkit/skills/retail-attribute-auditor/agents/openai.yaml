@@ -1,0 +1,4 @@
+interface:
+  display_name: "Retail Attribute Auditor"
+  short_description: "Audit retail CDP attribute coverage safely"
+  default_prompt: "Use $retail-attribute-auditor to compare the retail checklist with the connected Meiro instance."

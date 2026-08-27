@@ -1,0 +1,127 @@
+{
+  "id": "meiro-ecommerce",
+  "version": "1.0.0",
+  "status": "draft_playbook",
+  "sourceDocument": "meiro-ecommerce-playbooks_1.html",
+  "principles": [
+    "A playbook is a conditional recipe, not evidence that prerequisites exist.",
+    "Public website observations cannot prove private order, identity, consent, catalog, margin, return, CRM, OMS, or DWH contracts.",
+    "Create inactive drafts only after a separately approved implementation plan.",
+    "Test sends, production ingestion, exports, scheduling, launch, and activation require separate approvals."
+  ],
+  "playbooks": [
+    {
+      "id": "ecom-01-cart-abandonment",
+      "name": "Abandoned cart recovery",
+      "tier": "behavioral_catalog",
+      "kpis": ["saved_baskets", "conversion_rate", "revenue"],
+      "channels": ["email", "sms", "push"],
+      "requiredEvents": ["cart_viewed", "cart_abandoned", "purchase"],
+      "requiredEventFields": ["cart_id", "items[].item_id", "value", "currency"],
+      "requiredAttributes": ["last_abandoned_cart_value", "days_since_last_purchase", "has_active_cart"],
+      "requiredAssets": ["product_catalog", "abandoned_items_saved_feed", "category_fallback_asset"],
+      "requiredPolicies": ["channel_consent", "journey_exclusion", "reentry_cooldown"],
+      "defaultJourney": ["cart_abandoned", "delay_1h", "email", "wait_purchase", "sms_if_no_purchase", "push_if_no_purchase"],
+      "activationBlockers": ["unverified_cart_schema", "unverified_purchase_suppression", "missing_catalog", "missing_consent"]
+    },
+    {
+      "id": "ecom-02-welcome-nurture",
+      "name": "Welcome and first-purchase nurture",
+      "tier": "identity_catalog",
+      "kpis": ["conversion_rate", "aov", "purchase_frequency"],
+      "channels": ["email"],
+      "requiredEvents": ["customer_registered_or_email_subscribed", "purchase"],
+      "requiredEventFields": ["consented_email_or_profile_identifier", "source_channel", "signup_channel"],
+      "requiredAttributes": ["total_orders", "email_consent"],
+      "requiredAssets": ["product_catalog", "bestsellers_feed", "approved_offer_asset"],
+      "requiredPolicies": ["lawful_basis_and_consent", "purchase_exit", "domain_warming"],
+      "defaultJourney": ["registration_or_subscription", "email_day_0", "purchase_split", "email_day_3", "purchase_split", "email_day_7"],
+      "activationBlockers": ["unverified_identity", "unverified_consent", "unverified_purchase_exit", "email_transport_not_ready"]
+    },
+    {
+      "id": "ecom-03-replenishment",
+      "name": "Replenishment and reorder reminder",
+      "tier": "dwh_predictive_catalog",
+      "kpis": ["purchase_frequency", "retention", "margin"],
+      "channels": ["email", "sms"],
+      "requiredEvents": ["purchase"],
+      "requiredEventFields": ["profile_identifier", "order_timestamp", "items[].item_id", "items[].quantity"],
+      "requiredAttributes": ["last_purchase_date", "predicted_reorder_date", "predicted_reorder_item"],
+      "requiredAssets": ["product_catalog", "reorder_feed"],
+      "requiredPolicies": ["minimum_history", "outlier_handling", "recent_purchase_suppression", "model_validation"],
+      "defaultJourney": ["predicted_date_minus_3d", "email", "wait_2d", "purchase_split", "sms_if_no_purchase"],
+      "activationBlockers": ["insufficient_order_history", "unvalidated_prediction", "missing_catalog", "missing_sms_consent"]
+    },
+    {
+      "id": "ecom-04-post-purchase-cross-sell",
+      "name": "Post-purchase upsell and cross-sell",
+      "tier": "oms_catalog",
+      "kpis": ["aov", "purchase_frequency", "margin"],
+      "channels": ["email"],
+      "requiredEvents": ["order_confirmed", "purchase"],
+      "requiredEventFields": ["order_id", "items[].item_id", "items[].category", "value", "currency"],
+      "requiredAttributes": ["last_purchased_category", "last_purchased_sku", "total_orders"],
+      "requiredAssets": ["product_catalog", "complementary_product_rules_or_feed", "bestsellers_fallback"],
+      "requiredPolicies": ["owned_item_exclusion", "purchase_suppression", "recommendation_quality_review"],
+      "defaultJourney": ["order_confirmed", "delay_3d", "cross_sell_email", "delay_7d", "second_purchase_split", "bundle_email"],
+      "activationBlockers": ["unverified_oms_event", "missing_catalog", "missing_complementarity_rules"]
+    },
+    {
+      "id": "ecom-05-winback",
+      "name": "Win-back for lapsed customers",
+      "tier": "dwh_catalog_activation",
+      "kpis": ["retention", "purchase_frequency", "revenue"],
+      "channels": ["email", "sms", "profile_destination"],
+      "requiredEvents": ["purchase", "email_engagement"],
+      "requiredEventFields": ["profile_identifier", "order_timestamp"],
+      "requiredAttributes": ["days_since_last_purchase", "last_purchased_category", "channel_consent"],
+      "requiredAssets": ["product_catalog", "category_new_arrivals_feed"],
+      "requiredPolicies": ["lapse_window", "journey_mutual_exclusion", "reentry_never_or_120d", "paid_media_suppression_approval"],
+      "defaultJourney": ["daily_lapsed_audience", "email", "wait_7d", "engagement_or_purchase_split", "sms", "paid_suppression"],
+      "activationBlockers": ["unverified_purchase_history", "missing_channel_consent", "unapproved_paid_export"]
+    },
+    {
+      "id": "ecom-06-vip",
+      "name": "VIP and high-value customer program",
+      "tier": "dwh_policy_activation",
+      "kpis": ["aov", "margin", "retention"],
+      "channels": ["email", "push", "profile_destination"],
+      "requiredEvents": ["purchase"],
+      "requiredEventFields": ["profile_identifier", "order_value", "margin_or_policy_input"],
+      "requiredAttributes": ["lifetime_value", "purchase_count", "vip_tier"],
+      "requiredAssets": ["approved_vip_benefits", "vip_content"],
+      "requiredPolicies": ["vip_threshold_owner", "refresh_cadence", "channel_consent", "paid_suppression_approval"],
+      "defaultJourney": ["vip_tier_to_gold", "welcome_email", "delay_3d", "push", "monthly_preview"],
+      "activationBlockers": ["unapproved_vip_definition", "unverified_dwh_metrics", "unapproved_paid_export"]
+    },
+    {
+      "id": "ecom-07-browse-abandonment",
+      "name": "Browse abandonment",
+      "tier": "behavioral_identity_catalog",
+      "kpis": ["conversion_rate", "revenue"],
+      "channels": ["email", "push"],
+      "requiredEvents": ["view_item", "add_to_cart", "purchase"],
+      "requiredEventFields": ["product_id", "category", "price", "currency", "consented_profile_identifier"],
+      "requiredAttributes": ["has_active_cart", "push_consent"],
+      "requiredAssets": ["product_catalog", "same_category_feed"],
+      "requiredPolicies": ["identified_only_delivery", "cart_journey_exclusion", "push_consent", "minimum_engagement"],
+      "defaultJourney": ["view_item", "wait_add_to_cart_2h", "email_if_no_cart", "wait_20h", "purchase_or_cart_split", "push"],
+      "activationBlockers": ["static_only_view_item_evidence", "unverified_identity", "unverified_add_to_cart", "missing_catalog"]
+    },
+    {
+      "id": "ecom-08-review-referral",
+      "name": "Post-purchase review and referral",
+      "tier": "oms_identity",
+      "kpis": ["margin", "conversion_rate", "aov"],
+      "channels": ["email", "sms"],
+      "requiredEvents": ["order_delivered", "review_submitted", "purchase"],
+      "requiredEventFields": ["order_id", "confirmed_delivery_date", "profile_identifier", "items[].item_id"],
+      "requiredAttributes": ["total_orders", "has_left_review", "channel_consent"],
+      "requiredAssets": ["product_catalog", "approved_review_or_referral_links", "approved_referral_code"],
+      "requiredPolicies": ["confirmed_delivery_only", "permanent_review_suppression", "referral_terms", "sms_consent"],
+      "defaultJourney": ["order_delivered", "delay_5d", "repeat_buyer_split", "review_or_referral_email", "delay_7d", "review_split", "sms_nudge"],
+      "activationBlockers": ["unverified_delivery_event", "unverified_review_event", "missing_consent", "unapproved_referral_terms"]
+    }
+  ]
+}
+

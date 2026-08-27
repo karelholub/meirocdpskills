@@ -1,0 +1,4 @@
+interface:
+  display_name: "Paid Media Activation Auditor"
+  short_description: "Audit paid-media activation readiness safely"
+  default_prompt: "Audit paid-media activation readiness using read-only evidence. Separate observed capabilities from consent, identity, destination, event-quality, and approval blockers; never export or activate."

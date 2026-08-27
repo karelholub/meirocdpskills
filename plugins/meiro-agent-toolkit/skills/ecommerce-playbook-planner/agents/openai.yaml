@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ecommerce Playbook Planner"
+  short_description: "Apply ecommerce playbooks to Meiro evidence"
+  default_prompt: "Use $ecommerce-playbook-planner to create an evidence-backed offline Meiro blueprint for this ecommerce site."

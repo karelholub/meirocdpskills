@@ -1,0 +1,28 @@
+#!/bin/sh
+set -eu
+
+command -v jq >/dev/null 2>&1 || {
+  echo "jq is required for Engage metadata sanitization." >&2
+  exit 1
+}
+
+# Accept JSON on stdin. Keep structural metadata while removing creative
+# content, personal data, executable/configuration values, and secret material.
+jq '
+  walk(
+    if type == "object" then
+      with_entries(
+        if (.key | test("^(params|destinationParams|configuredParams|parameterValues)$"; "i")) then
+          .value = (if (.value | type) == "object" then {parameterNames: (.value | keys)} else {parameterNames: []} end)
+        else . end
+        | select(
+            .key
+            | test("^(body|content|contentJson|contentHtml|html|htmlBody|text|textBody|preheader|subject|fromAddress|fromName|replyToAddress|recipient|recipients|profile|profiles|profileId|profileIds|recentProfileEntries|identities|payload|template|secret|secrets|secretId|secretIds|functionCode|code|sql)$"; "i")
+            | not
+          )
+      )
+    elif type == "string" and test("^[^@[:space:]]+@[^@[:space:]]+\\.[^@[:space:]]+$") then
+      "[REDACTED_EMAIL]"
+    else . end
+  )
+'

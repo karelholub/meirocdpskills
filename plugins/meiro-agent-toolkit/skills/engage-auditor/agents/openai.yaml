@@ -1,0 +1,4 @@
+interface:
+  display_name: "Engage Auditor"
+  short_description: "Audit Meiro Engage without changing state"
+  default_prompt: "Use $engage-auditor to audit campaigns and journeys through read-only access."

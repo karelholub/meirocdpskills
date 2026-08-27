@@ -1,0 +1,4 @@
+interface:
+  display_name: "Campaign Builder"
+  short_description: "Draft offline campaigns with approval gates"
+  default_prompt: "Use $campaign-builder to create an offline campaign proposal without writing to Meiro."

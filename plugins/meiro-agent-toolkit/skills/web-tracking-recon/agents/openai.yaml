@@ -1,0 +1,4 @@
+interface:
+  display_name: "Web Tracking Recon"
+  short_description: "Inspect public web tracking before SDK setup"
+  default_prompt: "Use $web-tracking-recon to inspect this public website and draft an offline Meiro event plan."

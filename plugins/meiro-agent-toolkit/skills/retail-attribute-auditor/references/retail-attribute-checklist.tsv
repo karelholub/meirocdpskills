@@ -1,0 +1,124 @@
+type of attribute	name	description	notes
+transactional KPIs	AOV (average order value)		
+	total revenue		
+	total number of orders		
+	first purchase date		
+	last purchase date		
+	days since last purchase		
+	purchase frequency		orders per month/quarter/year
+	next expected purchase date		based on frequency / predictive model
+	average basket size		units per order
+	average margin per order		
+	discount affinity 		% of orders with discount applied
+	return rate	% of orders returned	if the information is available in CRM / ERP / DWH
+			
+Identity & Demography	customer ID		1st party ID
+	email		primary / secondary, consents
+	phone		
+	first / last name / vocative		
+	gender		if collected
+	date of birth		use age band if DoB not collected
+	Country / Region / City / ZIP		
+	language preferences		
+	Marketing opt-ins (email, SMS, WhatsApp, push, cookies/ads)		
+			
+product & category affinity	Top purchased categories (ranked)		
+	Top purchased brands		
+	High-value product affinity (premium vs. mass market)		depends on product feed data
+	Cart opener vs. cart filler ratio		
+	Repeat purchase ratio (number of items bought more than once)		
+	Seasonal affinity (e.g. Back-to-school, Christmas, Summer)		
+			
+engagement metrics	last website visit date		
+	total visits		30d/90d/lifetime
+	average session depth		number of pageviews / visit
+	last app visit		
+	email engagement metrics		open rate, click rate, last engagement date
+	other channels engagement		
+	loyalty program activity		points balance, tier, last redemption
+	sunset policy (channel pause)		flag to pause / activate channel with low engagement
+			
+RFM	R (recency)	last purchase date, days since last purchase, recency score	recency score - Binned value (1 = very old, 5 = very recent)
+	F (frequency)	total number of purchases, purchase frequency (num of orders / customer lifetime), frequency score	frequency score - Binned value (1 = very few, 5 = very frequent)
+	M (monetary value)	total revenue, AOV (total / number of purchases), monetary score	monetary score - binned value 
+	RFM score	Concatenation of scores (e.g., R=5, F=4, M=5 → “545”)	
+	RFM band / label	Grouped classification (e.g., “Champions,” “At risk,” “Hibernating,” “New customers,” etc.)	
+			
+predictive & derived attributes	churn risk score	heuristic / predictive models	
+	CLV	historic and/or predictive	
+	propensity to purchase	probability score	
+	propensity to return items		
+	next best product / category recommendation		
+	margin band		
+	upsell / cross sell recommendations		
+			
+channel & device attributes	primary device type	mobile / desktop / tablet	
+	OS / browser preference		
+	preffered purchase channel	web / app / offline	
+	payment method affinity	card, cash, wallet	
+	delivery preference		home delivery, click & collect, store pick up
+			
+compliance & consent	date of last consent update		any source
+	source of consent		web, app, POS, loyalty
+			
+trend attributes	spend trend	↑ / ↓ change in spend over last 3 / 6 / 12 months vs. previous period	
+	order trend		
+	AOV trend		
+	margin trend		
+	visit trend		
+	email engagement trend		
+	ad interaction trend	change in impressions/clicks attributed to the profile	
+	category shift	movement between categories (e.g., from budget → premium, kids → adult, summer → winter categories)	
+	discount usage trend	growing reliance on promotions vs. full-price buying	
+	return rate trend	returns becoming more frequent, stable, or declining	
+			
+product views	total products viewed	lifetime, 30d, 90d	
+	average products viewed per session		
+	view-to-purchase ratio		
+	last product view date		product view RFM, include product SKU / name to indicate specific product propensity with high RF
+	days since last product view		
+	frequency of product views	per week/month	
+	most viewed categories	ranked top 3–5	
+	most viewed brands		
+	category view split %	e.g. 60% footwear, 30% apparel, 10% accessories	
+	full price vs discounted items views		
+	viewed but not purchased	list/last N	
+	repeat views of the same product		
+	cart-opener products viewed		if the information is in the product feed
+	product view velocity	views per week/month, trend vs. last period	
+	category shift trend	growing interest in a new category/brand compared to history	
+			
+cart attributes	cart size	items, value, margin	
+	cart abandonment count	lifetime, last 90 days	
+	products most often abandoned	list, category, margin type	
+			
+discount & price sensitivity	discount usage rate	% of orders with discount	
+	average discount % per order		
+	full-price buyer flag		
+	promo-only shopper flag		
+			
+returns & services	return rate	last 12m, lifetime	
+	refund total value		
+	most returned categories / products		
+	return reason distribution	if collected: size, defect, etc.	
+	service tickets / complaints count		
+			
+location attributes	Default shipping city/region/country		
+	Store proximity		
+	Preferred store / pick up point location		
+			
+lifecycle stage	customer age	days since first purchase / brand interaction	
+	lifecycle status	new, active, loyal, lapsing, churned	
+	Win-back target flag	lapsing/churned with high past value	
+			
+product recommendation attributes	category affinity scores	normalized weights for top categories (e.g. footwear 0.6, apparel 0.3, accessories 0.1)	
+	brand affinity scores	normalized weights for top brands	
+	price affinity scores	typical price range of purchased products (low / medium / high)	
+	discount affnity	share of purchases with discount applied	
+	new vs repeated product affinity	preference for buying new SKUs vs. replenishing	
+	Wishlist / saved items		
+	repeat purchased products	replenishment candidates	
+	high-margin products purchased	profit-optimized cross-sell	
+	propensity to buy product type	e.g. footwear: 0.65, jackets: 0.35	
+	cross-sell affinity	e.g., customers who bought X also often buy Y	
+	upsell affinity	average step-up price gap tolerated	

@@ -1,0 +1,9 @@
+.DS_Store
+.env
+.env.*
+*.token
+*.secret
+credentials*
+secrets*
+audits/
+outputs/
