@@ -1,0 +1,4 @@
+interface:
+  display_name: "Ecommerce ROI Modeler"
+  short_description: "Build governed ecommerce ROI ranges and business cases"
+  default_prompt: "Use $meiro-agent-toolkit:ecommerce-roi-modeler to create an evidence-labeled ecommerce opportunity model and keep it illustrative until required inputs are client-confirmed."

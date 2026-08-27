@@ -31,6 +31,7 @@ For authenticated read-only audits, set `MPCLI_URL` and `MPCLI_TOKEN` only in th
 | Review campaigns and journeys | `$meiro-agent-toolkit:engage-auditor` | inventory → dependencies → delivery/readiness risks |
 | Compare recommended retail attributes | `$meiro-agent-toolkit:retail-attribute-auditor` | exact/equivalent/derivable/blocked/unknown coverage |
 | Apply ecommerce use cases | `$meiro-agent-toolkit:ecommerce-playbook-planner` | dependencies → readiness → sequencing → offline objects |
+| Build an ecommerce business case | `$meiro-agent-toolkit:ecommerce-roi-modeler` | evidence classes → scenarios → contribution → NPV/ROI/payback |
 | Design a safe campaign | `$meiro-agent-toolkit:campaign-builder` | brief → offline content/audience plan → readiness review |
 
 ## End-to-end lifecycle
@@ -91,6 +92,12 @@ Reviews identifier design, anonymous-to-known transitions, merge assumptions, co
 Applies the structured ecommerce catalogue to evidence, classifying each use case by readiness and dependencies without implementing it.
 
 > Use `$meiro-agent-toolkit:ecommerce-playbook-planner` to rank the ecommerce use cases that this instance can support in the next 90 days.
+
+#### `$meiro-agent-toolkit:ecommerce-roi-modeler`
+
+Builds a governed three-scenario ecommerce opportunity model with use-case-specific addressable bases, contribution economics, readiness, confidence, overlap, adoption ramp, full incremental costs, NPV, ROI, payback, checks and a source log. Website evidence establishes applicability only; the model remains `ILLUSTRATIVE` until every required financial input is client-confirmed.
+
+> Use `$meiro-agent-toolkit:ecommerce-roi-modeler` with this website recon, playbook plan and client inputs. Produce an illustrative opportunity range, identify missing inputs, and do not call it a forecast.
 
 ### Public and supplied-source reconnaissance
 
@@ -196,13 +203,23 @@ plugins/meiro-agent-toolkit/skills/ecommerce-playbook-planner/references/
 
 Each use case describes required events, fields, attributes, assets, policies, channels, journey outline and activation blockers. Extend the catalogue by preserving these dependencies and running the repository validation.
 
+## Ecommerce ROI models
+
+The ROI skill includes a reusable workbook under:
+
+```text
+plugins/meiro-agent-toolkit/skills/ecommerce-roi-modeler/assets/
+```
+
+Use public website, feed and read-only Meiro evidence to select relevant use cases and assess readiness. Obtain client-confirmed revenue, margin, addressable bases, costs and channel baselines before presenting a business case. Benchmarks must retain their exact source, population, metric definition and date. Revenue uplift is converted to contribution before ROI; direct cost savings are modeled separately.
+
 ## Validate changes
 
 ```bash
 sh scripts/validate-toolkit.sh
 ```
 
-The check validates plugin and marketplace structure, skill metadata, JSON, shell syntax, offline templates, the ecommerce catalogue, unsafe writer inclusion, placeholders and common secret/client leakage patterns. Pull requests also run it automatically.
+The check validates plugin and marketplace structure, skill metadata, JSON, shell syntax, offline templates, the ecommerce catalogue, ROI workbook governance, unsafe writer inclusion, placeholders and common secret/client leakage patterns. Pull requests also run it automatically.
 
 ## Release and update
 

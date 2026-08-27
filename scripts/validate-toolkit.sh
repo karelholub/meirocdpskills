@@ -12,7 +12,7 @@ jq -e '(.name=="meiro-team") and ((.plugins|length)==1) and (.plugins[0].name=="
 ruby -rjson -ryaml -e '
   root=ARGV[0]
   files=Dir[File.join(root,"skills/*/SKILL.md")]
-  abort "expected 16 skills" unless files.length==16
+  abort "expected 17 skills" unless files.length==17
   files.each do |file|
     data=YAML.load_file(file)
     folder=File.basename(File.dirname(file))
@@ -33,8 +33,9 @@ sh "$PLUGIN/skills/meiro-event-contract-designer/scripts/validate-event-contract
 sh "$PLUGIN/skills/meiro-qa-validator/scripts/validate-qa-plan.sh" "$PLUGIN/skills/meiro-qa-validator/assets/qa-plan.template.json"
 sh "$PLUGIN/skills/meiro-change-bundle-builder/scripts/validate-change-bundle.sh" "$PLUGIN/skills/meiro-change-bundle-builder/assets/change-bundle.template.json"
 sh "$PLUGIN/skills/ecommerce-playbook-planner/scripts/validate-playbook.sh"
+sh "$PLUGIN/skills/ecommerce-roi-modeler/scripts/validate-roi-model.sh" "$PLUGIN/skills/ecommerce-roi-modeler/assets/ecommerce-roi-template.xlsx"
 
-if grep -R -n -E '\[TODO:|/Users/[^/]+/|BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY|Bearer [A-Za-z0-9._-]{16,}' "$ROOT" --exclude-dir=.git --exclude=validate-toolkit.sh; then
+if grep -R -n -E '\[TODO:|/Users/[^/]+/|BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY|Bearer [A-Za-z0-9._-]{16,}' "$ROOT" --exclude-dir=.git --exclude=validate-toolkit.sh --exclude='*.xlsx'; then
   echo "FAIL: placeholder, local path or secret-like material found" >&2
   exit 1
 fi
