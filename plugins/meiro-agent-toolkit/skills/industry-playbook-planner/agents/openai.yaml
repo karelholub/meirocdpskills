@@ -1,0 +1,4 @@
+interface:
+  display_name: "Industry Playbook Planner"
+  short_description: "Plan governed Travel and BFSI CDP use cases"
+  default_prompt: "Use $meiro-agent-toolkit:industry-playbook-planner to assess this organization against the relevant industry playbook without implementing anything."

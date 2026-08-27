@@ -1,9 +1,10 @@
 # Meiro Agent Toolkit for Codex
 
-A governed set of Codex skills for two common jobs:
+A governed set of Codex skills for three common jobs:
 
 1. Inspect a prospective client's website and feeds, then design a new Meiro CDP and Engage instance.
-2. Audit an existing Meiro instance, compare it with retail attributes and ecommerce playbooks, and propose prioritized improvements.
+2. Audit an existing Meiro instance, compare it with attributes and industry playbooks, and propose prioritized improvements.
+3. Apply reusable ecommerce, Travel or BFSI use cases with industry-specific evidence, policy and approval gates.
 
 The shared plugin is intentionally safe by default. It supports public reconnaissance, read-only instance inspection, offline design, QA planning and approval review. It contains no general-purpose Meiro writer and never stores credentials.
 
@@ -31,6 +32,7 @@ For authenticated read-only audits, set `MPCLI_URL` and `MPCLI_TOKEN` only in th
 | Review campaigns and journeys | `$meiro-agent-toolkit:engage-auditor` | inventory → dependencies → delivery/readiness risks |
 | Compare recommended retail attributes | `$meiro-agent-toolkit:retail-attribute-auditor` | exact/equivalent/derivable/blocked/unknown coverage |
 | Apply ecommerce use cases | `$meiro-agent-toolkit:ecommerce-playbook-planner` | dependencies → readiness → sequencing → offline objects |
+| Apply Travel or BFSI use cases | `$meiro-agent-toolkit:industry-playbook-planner` | select industry → policy boundary → readiness → governed offline plan |
 | Build an ecommerce business case | `$meiro-agent-toolkit:ecommerce-roi-modeler` | evidence classes → scenarios → contribution → NPV/ROI/payback |
 | Design a safe campaign | `$meiro-agent-toolkit:campaign-builder` | brief → offline content/audience plan → readiness review |
 
@@ -92,6 +94,14 @@ Reviews identifier design, anonymous-to-known transitions, merge assumptions, co
 Applies the structured ecommerce catalogue to evidence, classifying each use case by readiness and dependencies without implementing it.
 
 > Use `$meiro-agent-toolkit:ecommerce-playbook-planner` to rank the ecommerce use cases that this instance can support in the next 90 days.
+
+#### `$meiro-agent-toolkit:industry-playbook-planner`
+
+Applies structured Travel or BFSI playbooks to public, supplied and authorized read-only evidence. Travel workflows enforce booking, inventory, price-freshness, service/marketing and sensitive-traveler boundaries. BFSI workflows enforce purpose separation, data minimization, secure handoffs and a hard boundary against unapproved credit, underwriting, pricing, fraud, claims, eligibility, suitability or investment decisions.
+
+> Use `$meiro-agent-toolkit:industry-playbook-planner` with the Travel catalogue to assess this tour operator and rank the first 90 days of CDP use cases. Planning only.
+
+> Use `$meiro-agent-toolkit:industry-playbook-planner` with the BFSI catalogue to audit this insurer's communication opportunities. Do not propose automated underwriting, pricing or claims decisions.
 
 #### `$meiro-agent-toolkit:ecommerce-roi-modeler`
 
@@ -203,6 +213,16 @@ plugins/meiro-agent-toolkit/skills/ecommerce-playbook-planner/references/
 
 Each use case describes required events, fields, attributes, assets, policies, channels, journey outline and activation blockers. Extend the catalogue by preserving these dependencies and running the repository validation.
 
+## Travel and BFSI playbooks
+
+The reusable Travel and BFSI catalogues live under:
+
+```text
+plugins/meiro-agent-toolkit/skills/industry-playbook-planner/references/
+```
+
+Both use the same governed schema, readiness language and approval policy. This makes the planner extensible to future industries while keeping industry-specific policy references separate. Travel contains eight use cases spanning discovery through post-trip engagement. BFSI contains eight communications and human-handoff use cases and explicitly excludes unapproved regulated decisioning.
+
 ## Ecommerce ROI models
 
 The ROI skill includes a reusable workbook under:
@@ -219,7 +239,7 @@ Use public website, feed and read-only Meiro evidence to select relevant use cas
 sh scripts/validate-toolkit.sh
 ```
 
-The check validates plugin and marketplace structure, skill metadata, JSON, shell syntax, offline templates, the ecommerce catalogue, ROI workbook governance, unsafe writer inclusion, placeholders and common secret/client leakage patterns. Pull requests also run it automatically.
+The check validates plugin and marketplace structure, skill metadata, JSON, shell syntax, offline templates, ecommerce, Travel and BFSI catalogues, ROI workbook governance, unsafe writer inclusion, placeholders and common secret/client leakage patterns. Pull requests also run it automatically.
 
 ## Release and update
 

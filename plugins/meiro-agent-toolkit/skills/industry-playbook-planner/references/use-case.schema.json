@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/karelholub/meirocdpskills/industry-use-case.schema.json",
+  "title": "Meiro governed industry use case",
+  "type": "object",
+  "required": [
+    "id", "name", "industry", "tier", "businessObjective", "kpis", "channels",
+    "requiredEvents", "requiredEventFields", "requiredIdentifiers", "requiredAttributes",
+    "requiredAssets", "requiredPolicies", "defaultJourney", "measurement",
+    "stopConditions", "activationBlockers"
+  ],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "name": {"type": "string", "minLength": 1},
+    "industry": {"enum": ["travel", "bfsi"]},
+    "tier": {"type": "string", "minLength": 1},
+    "businessObjective": {"type": "string", "minLength": 1},
+    "kpis": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "channels": {"type": "array", "items": {"type": "string"}},
+    "requiredEvents": {"type": "array", "items": {"type": "string"}},
+    "requiredEventFields": {"type": "array", "items": {"type": "string"}},
+    "requiredIdentifiers": {"type": "array", "items": {"type": "string"}},
+    "requiredAttributes": {"type": "array", "items": {"type": "string"}},
+    "requiredAssets": {"type": "array", "items": {"type": "string"}},
+    "requiredPolicies": {"type": "array", "items": {"type": "string"}},
+    "defaultJourney": {"type": "array", "items": {"type": "string"}},
+    "measurement": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "stopConditions": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "activationBlockers": {"type": "array", "items": {"type": "string"}, "minItems": 1}
+  },
+  "additionalProperties": true
+}

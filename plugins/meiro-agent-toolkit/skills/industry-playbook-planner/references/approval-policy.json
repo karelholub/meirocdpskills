@@ -1,0 +1,17 @@
+{
+  "version": "1.0",
+  "default": "deny",
+  "stages": [
+    {"stage": "discover", "allowed": ["public_read", "authorized_aggregate_metadata_read", "local_artifact_write"], "approval": "none"},
+    {"stage": "plan", "allowed": ["offline_configuration_proposal", "offline_content_draft", "synthetic_test_plan"], "approval": "none"},
+    {"stage": "sandbox_draft", "allowed": ["create_inactive_object_in_named_nonproduction_instance"], "approval": "explicit_exact_plan_and_payload_hash"},
+    {"stage": "data_connection", "allowed": ["attach_approved_secret_reference", "connect_approved_source"], "approval": "explicit_data_owner_security_owner_and_compliance_owner"},
+    {"stage": "delivery_test", "allowed": ["test_send_to_allowlisted_recipients"], "approval": "explicit_channel_owner_and_compliance_when_required"},
+    {"stage": "activation", "allowed": ["schedule", "launch", "publish", "enable", "export", "send"], "approval": "single_use_exact_object_payload_hash_reach_schedule_rollback_and_two_person_review"}
+  ],
+  "neverAutomatic": [
+    "consent_assumption", "lawful_basis_assumption", "production_secret_creation",
+    "customer_record_retrieval", "customer_data_export", "marketing_activation",
+    "campaign_launch", "journey_launch", "regulated_decision", "sensitive_attribute_inference"
+  ]
+}

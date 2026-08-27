@@ -45,6 +45,7 @@ The complete catalogue and example prompts are documented in [README.md](README.
 - `retail-attribute-auditor`
 - `web-tracking-recon`
 - `ecommerce-playbook-planner`
+- `industry-playbook-planner` — Travel and BFSI catalogues
 - `ecommerce-roi-modeler`
 - `paid-media-activation-auditor`
 - `campaign-builder`

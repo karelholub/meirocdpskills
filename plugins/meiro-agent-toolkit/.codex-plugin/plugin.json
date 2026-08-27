@@ -1,7 +1,7 @@
 {
   "name": "meiro-agent-toolkit",
-  "version": "0.3.0",
-  "description": "Governed Meiro CDP, Engage, ecommerce, ROI, web-tracking, retail-attribute and paid-media workflows for Codex.",
+  "version": "0.4.0",
+  "description": "Governed Meiro CDP, Engage, ecommerce, Travel, BFSI, ROI, web-tracking, attribute and paid-media workflows for Codex.",
   "author": {
     "name": "Meiro Team"
   },
@@ -11,18 +11,20 @@
   "interface": {
     "displayName": "Meiro Agent Toolkit",
     "shortDescription": "Audit, plan and govern Meiro implementations safely.",
-    "longDescription": "Governed lifecycle orchestration, website and feed reconnaissance, event and identity/consent contracts, instance blueprints, read-only CDP and Engage audits, data quality, retail attributes, ecommerce playbooks, contribution-based ROI modeling, paid-media readiness, offline campaigns, immutable change bundles, QA planning and implementation gates. Credentials and client execution bundles remain local.",
+    "longDescription": "Governed lifecycle orchestration, website and feed reconnaissance, event and identity/consent contracts, instance blueprints, read-only CDP and Engage audits, data quality, retail attributes, ecommerce, Travel and BFSI playbooks, contribution-based ROI modeling, paid-media readiness, offline campaigns, immutable change bundles, QA planning and implementation gates. Credentials and client execution bundles remain local.",
     "developerName": "Meiro Team",
     "category": "Productivity",
     "capabilities": [
       "Read-only investigation",
       "Implementation planning",
+      "Industry playbook planning",
       "Governed ROI modeling",
       "Governed campaign proposals"
     ],
     "defaultPrompt": [
       "Audit this Meiro instance without changing it.",
       "Plan an ecommerce implementation from website evidence.",
+      "Apply a governed Travel or BFSI playbook.",
       "Build an illustrative ecommerce ROI opportunity range.",
       "Review this proposed change through the Meiro gate."
     ]
