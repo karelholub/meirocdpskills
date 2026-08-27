@@ -1,0 +1,4 @@
+interface:
+  display_name: "Meiro Identity & Consent Auditor"
+  short_description: "Audit governed identity and consent readiness"
+  default_prompt: "Audit identity and consent readiness without retrieving profiles or changing state."

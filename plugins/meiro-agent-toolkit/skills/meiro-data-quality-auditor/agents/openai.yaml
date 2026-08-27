@@ -1,0 +1,4 @@
+interface:
+  display_name: "Meiro Data Quality Auditor"
+  short_description: "Audit freshness, schemas, identity and deliveries"
+  default_prompt: "Run a read-only Meiro data-quality audit and prioritize improvements."

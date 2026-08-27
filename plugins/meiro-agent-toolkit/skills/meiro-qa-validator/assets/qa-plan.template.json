@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "state": "offline_plan",
+  "environment": "unknown",
+  "blueprintHash": null,
+  "scope": [],
+  "tests": [],
+  "liveValidation": {"approved": false, "syntheticOnly": true, "allowlistedRecipients": []},
+  "activationApproved": false,
+  "meiroWritePerformed": false
+}

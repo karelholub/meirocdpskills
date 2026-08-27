@@ -5,7 +5,7 @@ description: Compare a recommended retail CDP attribute catalogue with a connect
 
 # Retail Attribute Auditor
 
-Read `references/retail-attribute-checklist.tsv` completely. Use `$meiro-investigator` and its guarded script for live metadata.
+Read `references/retail-attribute-checklist.tsv` completely. Use `$meiro-agent-toolkit:meiro-investigator` and its guarded script for live metadata.
 
 Inspect only `/api/attributes`, `/api/event-types`, `/api/identifier-types`, `/api/event-streams`, `/api/cloud-apps`, `/api/models`, and `/api/data-warehouses`. Never retrieve profile values, event samples, payloads, secrets, tokens, settings, or execute SQL.
 

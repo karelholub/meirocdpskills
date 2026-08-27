@@ -1,0 +1,4 @@
+interface:
+  display_name: "Meiro Product Feed Auditor"
+  short_description: "Audit catalog and event-to-product readiness"
+  default_prompt: "Audit this supplied product feed for Meiro ecommerce playbook readiness."

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": "1.0",
+  "state": "offline_proposal",
+  "environment": {"name": "unknown", "baseUrl": null, "production": null},
+  "objective": "",
+  "evidence": [],
+  "objects": [],
+  "decisions": [],
+  "blockers": [],
+  "approval": {"implementationApproved": false, "validationApproved": false, "activationApproved": false},
+  "meiroWritePerformed": false
+}

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Meiro Change Bundle Builder"
+  short_description: "Build immutable offline approval bundles"
+  default_prompt: "Create an immutable offline Meiro change bundle from this validated blueprint."

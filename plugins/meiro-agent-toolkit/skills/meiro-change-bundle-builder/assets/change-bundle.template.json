@@ -1,0 +1,17 @@
+{
+  "schemaVersion": "1.0",
+  "state": "offline_bundle",
+  "target": {"environment": "unknown", "baseUrl": null, "production": null},
+  "blueprintSha256": null,
+  "actions": [],
+  "dependencies": [],
+  "owners": [],
+  "reach": null,
+  "idempotency": "",
+  "stopCondition": "",
+  "rollback": "",
+  "auditDestination": "",
+  "explicitExclusions": ["test", "publish", "schedule", "enable", "activate"],
+  "approval": {"draft": false, "validation": false, "activation": false},
+  "meiroWritePerformed": false
+}

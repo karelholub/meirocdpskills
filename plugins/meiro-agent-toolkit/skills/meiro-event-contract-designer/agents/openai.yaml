@@ -1,0 +1,4 @@
+interface:
+  display_name: "Meiro Event Contract Designer"
+  short_description: "Design versioned event and identity contracts"
+  default_prompt: "Turn observed tracking and requirements into a validated Meiro event contract."

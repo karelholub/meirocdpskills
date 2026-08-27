@@ -5,7 +5,7 @@ description: Audit Meiro paid-media activation readiness for Meta CAPI, anonymou
 
 # Paid Media Activation Auditor
 
-Read `references/review-framework.md`. Use existing `$web-tracking-recon`, `$meiro-investigator` and `$engage-auditor` artifacts when available. For fresh Meiro evidence, use only those skills' guarded GET scripts; never use raw `mpcli` or bypass their allowlists.
+Read `references/review-framework.md`. Use existing `$meiro-agent-toolkit:web-tracking-recon`, `$meiro-agent-toolkit:meiro-investigator` and `$meiro-agent-toolkit:engage-auditor` artifacts when available. For fresh Meiro evidence, use only those skills' guarded GET scripts; never use raw `mpcli` or bypass their allowlists.
 
 Treat destination names and enabled flags as configuration evidence, not proof of valid credentials, platform acceptance, lawful processing, complete delivery or advertising performance. Treat public scripts and static event code as observable signals, not proof that events fired or were received.
 
@@ -42,6 +42,6 @@ Classify each path as exactly one of:
 - `NOT_APPLICABLE`
 - `UNKNOWN`
 
-Separate confirmed, probable, possible and unknown findings. Propose only inactive/offline specifications, synthetic test fixtures and aggregate validation. Any customer-data export, paid-media activation or production event delivery requires a separate exact implementation plan and `$meiro-implementation-gate` review.
+Separate confirmed, probable, possible and unknown findings. Propose only inactive/offline specifications, synthetic test fixtures and aggregate validation. Any customer-data export, paid-media activation or production event delivery requires a separate exact implementation plan and `$meiro-agent-toolkit:meiro-implementation-gate` review.
 
 End with `Paid-media audit only. No audience export, ad-platform activation, or Meiro state was changed.`

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Meiro Lifecycle Orchestrator"
+  short_description: "Route safe end-to-end Meiro workflows"
+  default_prompt: "Choose and sequence the smallest governed workflow for this Meiro objective."

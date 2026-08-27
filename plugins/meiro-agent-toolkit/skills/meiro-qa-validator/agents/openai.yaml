@@ -1,0 +1,4 @@
+interface:
+  display_name: "Meiro QA Validator"
+  short_description: "Plan and assess bounded Meiro validation"
+  default_prompt: "Create a traceable, non-activating QA plan for this Meiro blueprint or draft."

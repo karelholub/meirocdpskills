@@ -1,0 +1,4 @@
+interface:
+  display_name: "Meiro Instance Blueprint"
+  short_description: "Design a governed desired-state Meiro object graph"
+  default_prompt: "Create a validated current-versus-desired Meiro blueprint from the evidence."

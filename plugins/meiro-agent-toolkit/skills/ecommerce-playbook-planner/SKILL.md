@@ -5,9 +5,9 @@ description: Apply governed ecommerce use-case playbooks to website reconnaissan
 
 # Ecommerce Playbook Planner
 
-Read `references/manifest.json` and `references/approval-policy.json`. Treat each playbook as a conditional recipe, not proof that prerequisites exist.
+Read `references/manifest.json`, `references/use-case.schema.json`, and `references/approval-policy.json`. Validate the catalogue with `scripts/validate-playbook.sh`. Treat each playbook as a conditional recipe, not proof that prerequisites exist.
 
-Use `$web-tracking-recon`, `$retail-attribute-auditor`, `$meiro-investigator`, and `$engage-auditor` evidence when relevant. Never infer private CRM, OMS, DWH, margin, identity, consent, catalog, or delivery contracts from a public site.
+Use `$meiro-agent-toolkit:web-tracking-recon`, `$meiro-agent-toolkit:retail-attribute-auditor`, `$meiro-agent-toolkit:meiro-investigator`, and `$meiro-agent-toolkit:engage-auditor` evidence when relevant. Never infer private CRM, OMS, DWH, margin, identity, consent, catalog, or delivery contracts from a public site.
 
 Classify each playbook as:
 
@@ -25,4 +25,3 @@ For each, provide evidence, missing dependencies, proposed inactive objects, seq
 Never implement, validate by execution, connect credentials/data, test-send, schedule, enable, export, publish, or launch. All proposed objects must remain offline/inactive.
 
 End with `Planning only. No website, GTM, data source, or Meiro state was changed.`
-

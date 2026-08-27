@@ -38,6 +38,8 @@ Never put credentials in this repository, prompts, task messages, audit artifact
 
 ## Included skills
 
+The complete catalogue and example prompts are documented in [README.md](README.md).
+
 - `meiro-investigator`
 - `engage-auditor`
 - `retail-attribute-auditor`
@@ -46,6 +48,14 @@ Never put credentials in this repository, prompts, task messages, audit artifact
 - `paid-media-activation-auditor`
 - `campaign-builder`
 - `meiro-implementation-gate`
+- `meiro-lifecycle-orchestrator`
+- `meiro-instance-blueprint`
+- `meiro-event-contract-designer`
+- `meiro-product-feed-auditor`
+- `meiro-data-quality-auditor`
+- `meiro-qa-validator`
+- `meiro-identity-consent-auditor`
+- `meiro-change-bundle-builder`
 
 The package contains no general Meiro writer. Instance changes require a separate target-locked execution bundle, an immutable payload hash and explicit approval for the named environment and stage.
 

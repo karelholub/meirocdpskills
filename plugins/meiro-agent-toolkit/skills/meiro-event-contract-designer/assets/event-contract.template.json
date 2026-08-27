@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "state": "offline_proposal",
+  "scope": "",
+  "owners": {"tracking": null, "identity": null, "consent": null},
+  "events": [],
+  "identityTransitions": [],
+  "consentRules": [],
+  "unknowns": [],
+  "deploymentPerformed": false
+}
