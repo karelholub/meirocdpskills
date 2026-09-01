@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0",
+  "state": "offline_evidence",
+  "brand": {
+    "name": "Synthetic Example",
+    "slug": "synthetic-example"
+  },
+  "observedAt": null,
+  "sources": [],
+  "tokens": [
+    {
+      "name": "primary-color",
+      "value": null,
+      "evidenceState": "UNKNOWN"
+    }
+  ],
+  "copyStyle": {
+    "observedPatterns": [],
+    "proposedInterpretations": [],
+    "avoid": []
+  },
+  "accessibilityObservations": [],
+  "unknowns": ["Approved brand evidence is intentionally absent from this synthetic validator fixture."],
+  "brandApproved": false,
+  "websiteWritePerformed": false
+}

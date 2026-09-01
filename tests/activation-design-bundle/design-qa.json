@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "state": "offline_plan",
+  "scope": ["Synthetic validator fixture"],
+  "tests": [
+    {
+      "id": "SYNTHETIC-01",
+      "status": "NOT_RUN"
+    }
+  ],
+  "renderMatrix": {
+    "emailClients": [],
+    "webViewports": [],
+    "locales": ["en"]
+  },
+  "liveValidation": {
+    "approved": false,
+    "syntheticOnly": true
+  },
+  "brandApproved": false,
+  "legalApproved": false,
+  "activationApproved": false,
+  "productionReady": false,
+  "meiroWritePerformed": false,
+  "websiteWritePerformed": false,
+  "channelWritePerformed": false
+}

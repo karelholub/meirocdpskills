@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "state": "offline_proposal",
+  "fields": [
+    {
+      "key": "preferred_language",
+      "source": "approved language attribute",
+      "fallback": "generic approved locale",
+      "missingBehavior": "Render generic approved content."
+    }
+  ],
+  "genericExperience": {
+    "email": "Generic approved content.",
+    "web": "Generic approved content."
+  },
+  "prohibitedDerivations": ["Do not infer sensitive traits."],
+  "unknowns": [],
+  "customerDataIncluded": false,
+  "meiroWritePerformed": false
+}

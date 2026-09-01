@@ -12,7 +12,7 @@ jq -e '(.name=="meiro-team") and ((.plugins|length)==1) and (.plugins[0].name=="
 ruby -rjson -ryaml -e '
   root=ARGV[0]
   files=Dir[File.join(root,"skills/*/SKILL.md")]
-  abort "expected 18 skills" unless files.length==18
+  abort "expected 19 skills" unless files.length==19
   files.each do |file|
     data=YAML.load_file(file)
     folder=File.basename(File.dirname(file))
@@ -25,6 +25,26 @@ ruby -rjson -ryaml -e '
   end
 ' "$PLUGIN"
 
+for required in \
+  SKILL.md \
+  agents/openai.yaml \
+  assets/activation-creative-brief.template.json \
+  assets/brand-evidence.template.json \
+  assets/design-qa.template.json \
+  assets/exact-content-ledger.template.json \
+  assets/personalization-matrix.template.json \
+  references/bundle-contract.md \
+  references/email-activation.md \
+  references/evidence-and-governance.md \
+  references/web-activation.md \
+  scripts/validate-activation-design-bundle.sh
+do
+  test -f "$PLUGIN/skills/meiro-activation-design-studio/$required" || {
+    echo "missing activation design resource: $required" >&2
+    exit 1
+  }
+done
+
 find "$PLUGIN/skills" -type f -path '*/scripts/*' -exec sh -n {} \;
 find "$ROOT" -type f -name '*.json' -exec jq empty {} \;
 
@@ -35,6 +55,7 @@ sh "$PLUGIN/skills/meiro-change-bundle-builder/scripts/validate-change-bundle.sh
 sh "$PLUGIN/skills/ecommerce-playbook-planner/scripts/validate-playbook.sh"
 sh "$PLUGIN/skills/industry-playbook-planner/scripts/validate-industry-playbooks.sh"
 sh "$PLUGIN/skills/ecommerce-roi-modeler/scripts/validate-roi-model.sh" "$PLUGIN/skills/ecommerce-roi-modeler/assets/ecommerce-roi-template.xlsx"
+sh "$PLUGIN/skills/meiro-activation-design-studio/scripts/validate-activation-design-bundle.sh" "$ROOT/tests/activation-design-bundle"
 
 if grep -R -n -E '\[TODO:|/Users/[^/]+/|BEGIN (RSA |EC |OPENSSH )?PRIVATE KEY|Bearer [A-Za-z0-9._-]{16,}' "$ROOT" --exclude-dir=.git --exclude=validate-toolkit.sh --exclude='*.xlsx'; then
   echo "FAIL: placeholder, local path or secret-like material found" >&2

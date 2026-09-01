@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "state": "offline_plan",
+  "scope": [],
+  "tests": [],
+  "renderMatrix": {"emailClients": [], "webViewports": [], "locales": []},
+  "liveValidation": {"approved": false, "syntheticOnly": true},
+  "brandApproved": false,
+  "legalApproved": false,
+  "activationApproved": false,
+  "productionReady": false,
+  "meiroWritePerformed": false,
+  "websiteWritePerformed": false,
+  "channelWritePerformed": false
+}

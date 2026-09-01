@@ -49,6 +49,7 @@ The complete catalogue and example prompts are documented in [README.md](README.
 - `ecommerce-roi-modeler`
 - `paid-media-activation-auditor`
 - `campaign-builder`
+- `meiro-activation-design-studio` — governed responsive email/web directions, personalization fallbacks and design QA
 - `meiro-implementation-gate`
 - `meiro-lifecycle-orchestrator`
 - `meiro-instance-blueprint`

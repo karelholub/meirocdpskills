@@ -1,0 +1,44 @@
+{
+  "schemaVersion": "1.0",
+  "state": "offline_proposal",
+  "name": "Synthetic activation design validator fixture",
+  "version": "1.0",
+  "campaignSource": {
+    "path": "synthetic-campaign-brief.json",
+    "version": "1.0",
+    "sha256": null,
+    "sourceOfTruth": true
+  },
+  "objective": "Exercise the offline bundle validator without client or customer data.",
+  "communicationClass": "UNKNOWN",
+  "channels": ["email", "web"],
+  "placements": ["synthetic review only"],
+  "locales": ["en"],
+  "directions": [
+    {
+      "id": "synthetic-direction",
+      "name": "Synthetic direction",
+      "status": "DRAFT"
+    }
+  ],
+  "contentHierarchy": [],
+  "artifacts": [],
+  "experiment": {
+    "hypothesis": null,
+    "variants": [],
+    "holdout": null,
+    "authoritativeOutcome": null
+  },
+  "assumptions": [],
+  "openQuestions": ["All real brand, legal, business and activation decisions remain open."],
+  "approvals": {
+    "brandApproved": false,
+    "legalApproved": false,
+    "businessApproved": false,
+    "activationApproved": false
+  },
+  "productionReady": false,
+  "meiroWritePerformed": false,
+  "websiteWritePerformed": false,
+  "channelWritePerformed": false
+}

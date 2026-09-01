@@ -1,10 +1,11 @@
 # Meiro Agent Toolkit for Codex
 
-A governed set of Codex skills for three common jobs:
+A governed set of Codex skills for four common jobs:
 
 1. Inspect a prospective client's website and feeds, then design a new Meiro CDP and Engage instance.
 2. Audit an existing Meiro instance, compare it with attributes and industry playbooks, and propose prioritized improvements.
 3. Apply reusable ecommerce, Travel or BFSI use cases with industry-specific evidence, policy and approval gates.
+4. Turn governed Meiro campaign briefs and brand evidence into reviewable email and web creative directions without activating anything.
 
 The shared plugin is intentionally safe by default. It supports public reconnaissance, read-only instance inspection, offline design, QA planning and approval review. It contains no general-purpose Meiro writer and never stores credentials.
 
@@ -35,6 +36,7 @@ For authenticated read-only audits, set `MPCLI_URL` and `MPCLI_TOKEN` only in th
 | Apply Travel or BFSI use cases | `$meiro-agent-toolkit:industry-playbook-planner` | select industry → policy boundary → readiness → governed offline plan |
 | Build an ecommerce business case | `$meiro-agent-toolkit:ecommerce-roi-modeler` | evidence classes → scenarios → contribution → NPV/ROI/payback |
 | Design a safe campaign | `$meiro-agent-toolkit:campaign-builder` | brief → offline content/audience plan → readiness review |
+| Design activation creative | `$meiro-agent-toolkit:meiro-activation-design-studio` | governed brief + brand evidence → responsive directions → personalization/fallback contract → design QA |
 
 ## End-to-end lifecycle
 
@@ -43,7 +45,7 @@ DISCOVER
   website + product feed + existing instance
       ↓
 DESIGN
-  event contract + identity/consent + attributes + playbooks
+  event contract + identity/consent + attributes + playbooks + activation creative
       ↓
 BLUEPRINT
   current state → desired state → dependencies
@@ -163,6 +165,14 @@ Creates and reviews offline campaign proposals covering audience, exclusions, co
 
 > Use `$meiro-agent-toolkit:campaign-builder` to create an offline cart-recovery banner proposal from this approved brief and brand evidence.
 
+#### `$meiro-agent-toolkit:meiro-activation-design-studio`
+
+Turns a governed campaign or journey brief plus public or supplied brand evidence into three meaningfully different responsive email and web directions by default. It produces a brand-evidence pack, creative brief, personalization/fallback matrix, exact-content ledger, copy deck, optional mockups and design QA plan. It cannot change audience, consent, timing or measurement rules and never connects to Meiro, test-sends, publishes or activates.
+
+> Use `$meiro-agent-toolkit:meiro-activation-design-studio` with this governed campaign brief and brand website. Create three responsive email and web directions, preserve all fallbacks and approval gates, and keep the work offline.
+
+Use it after `$meiro-agent-toolkit:campaign-builder` when no approved campaign brief exists. A selected design must still pass brand, business, content and legal/compliance review before a separate target-locked implementation and QA stage.
+
 #### `$meiro-agent-toolkit:meiro-qa-validator`
 
 Creates traceable post-implementation QA plans and assesses only actually executed, approved checks. It never treats an unexecuted test as passed.
@@ -239,7 +249,7 @@ Use public website, feed and read-only Meiro evidence to select relevant use cas
 sh scripts/validate-toolkit.sh
 ```
 
-The check validates plugin and marketplace structure, skill metadata, JSON, shell syntax, offline templates, ecommerce, Travel and BFSI catalogues, ROI workbook governance, unsafe writer inclusion, placeholders and common secret/client leakage patterns. Pull requests also run it automatically.
+The check validates plugin and marketplace structure, all 19 skill metadata files, JSON, shell syntax, offline templates, activation-design bundle validation, ecommerce, Travel and BFSI catalogues, ROI workbook governance, unsafe writer inclusion, placeholders and common secret/client leakage patterns. Pull requests also run it automatically.
 
 ## Release and update
 

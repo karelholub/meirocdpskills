@@ -23,3 +23,13 @@
 ## Focused improvement
 
 Use only the relevant auditor, blueprint the smallest change, gate it, then validate. Do not broaden scope without explicit authorization.
+
+## Activation creative
+
+When the user requests email or web creative for a Meiro activation:
+
+1. Start from an existing governed campaign or journey brief. If none exists, use `$meiro-agent-toolkit:campaign-builder` to create an offline proposal first.
+2. Use `$meiro-agent-toolkit:meiro-activation-design-studio` with the governed brief and approved or public brand evidence. Preserve audience, purpose, consent, exclusions, timing, measurement, rollback and approval state from the brief.
+3. Route the offline creative bundle through separate brand, business, content and legal/compliance review. A selected direction is not an implementation approval.
+4. Keep target-locked implementation outside this shared plugin. Use `$meiro-agent-toolkit:meiro-qa-validator` only after a separately approved draft exists, with synthetic or explicitly allowlisted evidence.
+5. Never test-send, publish, expose, schedule, enable or activate as part of creative design.

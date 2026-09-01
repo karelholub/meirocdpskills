@@ -1,0 +1,10 @@
+{
+  "schemaVersion": "1.0",
+  "state": "offline_proposal",
+  "fields": [],
+  "genericExperience": {"email": null, "web": null},
+  "prohibitedDerivations": [],
+  "unknowns": [],
+  "customerDataIncluded": false,
+  "meiroWritePerformed": false
+}

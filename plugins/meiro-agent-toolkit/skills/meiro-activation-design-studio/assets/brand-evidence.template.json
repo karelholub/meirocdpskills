@@ -1,0 +1,13 @@
+{
+  "schemaVersion": "1.0",
+  "state": "offline_evidence",
+  "brand": {"name": null, "slug": null},
+  "observedAt": null,
+  "sources": [],
+  "tokens": [],
+  "copyStyle": {"observedPatterns": [], "proposedInterpretations": [], "avoid": []},
+  "accessibilityObservations": [],
+  "unknowns": [],
+  "brandApproved": false,
+  "websiteWritePerformed": false
+}

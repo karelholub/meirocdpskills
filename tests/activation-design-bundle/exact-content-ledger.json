@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "state": "offline_ledger",
+  "items": [
+    {
+      "id": "synthetic-copy",
+      "status": "DRAFT",
+      "content": "Synthetic review copy",
+      "source": "validator fixture"
+    }
+  ],
+  "unknownRequiredContent": ["Approved brand and legal content"],
+  "inventedRegulatedClaim": false,
+  "legalApproved": false,
+  "brandApproved": false
+}

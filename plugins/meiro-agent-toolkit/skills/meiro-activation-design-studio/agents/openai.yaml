@@ -1,0 +1,4 @@
+interface:
+  display_name: "Meiro Activation Design Studio"
+  short_description: "Design governed Meiro email and web activations"
+  default_prompt: "Use $meiro-agent-toolkit:meiro-activation-design-studio to turn this governed Meiro campaign brief and brand website into reviewable email and web creative directions. Keep the work offline and preserve all approval gates."

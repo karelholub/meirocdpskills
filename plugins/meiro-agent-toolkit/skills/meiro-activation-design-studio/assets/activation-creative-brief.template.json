@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "state": "offline_proposal",
+  "name": null,
+  "version": "1.0",
+  "campaignSource": {"path": null, "version": null, "sha256": null, "sourceOfTruth": true},
+  "objective": null,
+  "communicationClass": "UNKNOWN",
+  "channels": [],
+  "placements": [],
+  "locales": [],
+  "directions": [],
+  "contentHierarchy": [],
+  "artifacts": [],
+  "experiment": {"hypothesis": null, "variants": [], "holdout": null, "authoritativeOutcome": null},
+  "assumptions": [],
+  "openQuestions": [],
+  "approvals": {"brandApproved": false, "legalApproved": false, "businessApproved": false, "activationApproved": false},
+  "productionReady": false,
+  "meiroWritePerformed": false,
+  "websiteWritePerformed": false,
+  "channelWritePerformed": false
+}
